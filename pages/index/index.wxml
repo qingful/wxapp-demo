@@ -1,0 +1,41 @@
+<view class='container'>
+  <view class='sign-out' bindtap='signOut'>退出登录</view>
+  <view class='title'>待办事项</view>
+  <view class='container-inner'>
+    <view class='new-todo'>
+      <view class='toggle-all'>
+        <text class='iconfont icon-down {{activeTodos.length > 0 ? "not-all" : "all-completed"}}' wx:if='{{todos.length > 0}}' bindtap='toggleAll'>
+        </text>
+      </view>
+      <input placeholder='需要做什么？' focus='true' placeholder-style='color: #e6e6e6;' bindblur='newTodo' value='{{newTodo}}'></input>
+    </view>
+    <view wx:if='{{todos.length > 0}}'>
+      <block wx:for='{{filterTodos}}' wx:key>
+        <view class='todo-item' wx:if='{{!item.edit}}'>
+          <text class='selected iconfont {{item.status == 1 ? "icon-gouxuan" : "icon-yuan"}}' bindtap='toggle' data-todoItem='{{item}}'></text>
+          <text class='content {{item.status == 1 ? "completed" : ""}}' bindtap="edit" bindtouchstart="touchStart" bindtouchend="touchEnd" data-todoId='{{item.id}}'>{{item.content}}
+          </text>
+          <text class='destroy' data-todoId='{{item.id}}' bindtap='destroy'></text>
+        </view>
+        <view class='todo-item' wx:if='{{item.edit}}'>
+          <text class='selected'></text>
+          <input class='edit-input' type='text' cursor-spacing='10' value='{{item.content}}' focus='true' bindblur='doneEdit' data-todoId='{{item.id}}'></input>
+        </view>
+      </block>
+
+      <view class='footer'>
+        <view>{{activeTodos.length}} 事项进行中</view>
+        <view class='filters'>
+          <text class='{{filtered == "all" ? "active" : ""}}' bindtap='all' data-click='0'>所有</text>
+          <text class='{{filtered == "active" ? "active" : ""}}' bindtap='active' data-click='1'>进行中</text>
+          <text class='{{filtered == "completed" ? "active" : ""}}' bindtap='completed' data-click='2'>已完成</text>
+        </view>
+        <view bindtap='destroyCompleted' class='{{activeTodos.length != filterTodos.length ? "show" : "hidden"}}'>清除已完成</view>
+      </view>
+
+      <view class='shadow'></view>
+    </view>
+  </view>
+
+  <view class='info'>双击编辑待办事项</view>
+</view>

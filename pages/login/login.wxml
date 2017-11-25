@@ -1,0 +1,20 @@
+<view class='container'>
+  <view class='title'>登录</view>
+  <view class='container-inner'>
+    <form bindsubmit='signIn'>
+      <view class='login'>
+        <view class='login-input'>
+          <image src='/img/phone.png'></image>
+          <input type='number' placeholder='请输入手机' placeholder-style='color: #e6e6e6;' name='phone'></input>
+        </view>
+        <view class='login-input'>
+          <image src='/img/pwd.png'></image>
+          <input type='password' placeholder='请输入密码' placeholder-style='color: #e6e6e6;' name='password'></input>
+        </view>
+        <button hover-class='button-hover' form-type='submit'>登录</button>
+        <navigator url='../register/register' hover-class="navigator-hover">还没有账号，立即注册</navigator>
+      </view>
+    </form>
+    <view class='shadow'></view>
+  </view>
+</view>

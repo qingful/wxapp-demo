@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/login/login",
+    "pages/register/register"
+ 
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f5f5f5",
+    "navigationBarTitleText": "待办事项",
+    "navigationBarTextStyle":"black"
+  }
+}
