@@ -15,7 +15,7 @@
           <image src='/img/pwdRepeate.png'></image>
           <input type='password' placeholder='请再次输入密码' placeholder-style='color: #e6e6e6;' name='pwdRepeate'></input>
         </view>
-        <button hover-class='button-hover' form-type='submit'>登录</button>
+        <button hover-class='button-hover' form-type='submit'>注册</button>
         <navigator url='../login/login' open-type='navigateBack' hover-class="navigator-hover">已有帐号，立即登录</navigator>
       </view>
     </form>
