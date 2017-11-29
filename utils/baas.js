@@ -172,20 +172,20 @@ if (wx) {
         options.url = url;
         return new Promise((resolve, reject) => {
             options.success = res => {
-                if (res.statusCode == 401) {
-                    wx.BaaS.noAuthorizationRequestOptions.push(options);
-                    wx.BaaS.login(() => {
-                        let length =
-                            wx.BaaS.noAuthorizationRequestOptions.length;
-                        for (let i = 0; i < length; i++) {
-                            wx.BaaS.request(
-                                wx.BaaS.noAuthorizationRequestOptions.pop()
-                            );
-                        }
-                    });
-                } else {
+                // if (res.statusCode == 401) {
+                //     wx.BaaS.noAuthorizationRequestOptions.push(options);
+                //     wx.BaaS.login(() => {
+                //         let length =
+                //             wx.BaaS.noAuthorizationRequestOptions.length;
+                //         for (let i = 0; i < length; i++) {
+                //             wx.BaaS.request(
+                //                 wx.BaaS.noAuthorizationRequestOptions.pop()
+                //             );
+                //         }
+                //     });
+                // } else {
                     resolve(res);
-                }
+                // }
             };
             options.fail = res => {
                 reject(res);
