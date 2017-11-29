@@ -30,18 +30,22 @@ Page({
     wx.BaaS.fetch(
       '/2.0/class/home/table/todos/fetchAll?whereIn=status,0,1',
     ).then(res => {
-      let todos = res.data.data;
-      const filtered = this.data.filtered;
-      todos.forEach(function (todo) {
-        todo.edit = false;
-      });
-      const filterTodos = this.filters[filtered](todos);
-      const activeTodos = this.filters.active(todos);
-      this.setData({
-        todos: todos,
-        filterTodos: filterTodos,
-        activeTodos: activeTodos
-      });
+      if (res.statusCode == 401){
+        this.signOut()
+      } else {
+        let todos = res.data.data;
+        const filtered = this.data.filtered;
+        todos.forEach(function (todo) {
+          todo.edit = false;
+        });
+        const filterTodos = this.filters[filtered](todos);
+        const activeTodos = this.filters.active(todos);
+        this.setData({
+          todos: todos,
+          filterTodos: filterTodos,
+          activeTodos: activeTodos
+        });
+      }
     })
   },
 
