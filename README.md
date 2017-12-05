@@ -5,6 +5,12 @@
 
 http://cloud.qingful.com
 
+## 演示
+
+https://qingful.github.io/jquery-demo/index.html
+账号：13253522080
+密码：mmmmmm
+
 ## 使用
 
 1. 登录青否云
