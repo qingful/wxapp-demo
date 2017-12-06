@@ -29,7 +29,7 @@ https://qingful.github.io/jquery-demo/index.html
    - 字段。
      - 点击创建字段，选择public分组，user数据表，password字段，值为空，类型选择md5，传值选择是，请求链接选择为空。
      - 点击创建字段，选择home分组，todos数据表，user_id字段，值为Authorization.id。类型为空，传值选择否，请求链接选择为空。
-5. 配置下`./js/config.js`中的appid，appkey
+5. 配置下`./app.js`中的appid，appkey
 
 
 
