@@ -14,22 +14,16 @@ Page({
   },
 
   onLoad: function () {
-    // 判断是否已登陆
-    const authorization = wx.getStorageSync('Authorization');
-    if (authorization) {
+      // 获取数据
       this.getTodos()
-    } else {
-      wx.reLaunch({
-        url: '../login/login',
-      })
-    }
   },
 
   // 获取数据
   getTodos: function () {
     wx.BaaS.fetch(
-      '/2.0/class/home/table/todos/fetchAll?whereIn=status,0,1',
+      'home/table/todos/fetchAll?whereIn=status,0,1',
     ).then(res => {
+      // 判断是否已授权
       if (res.statusCode == 401){
         this.signOut()
       } else {
@@ -52,7 +46,7 @@ Page({
   // 添加/修改 提交数据
   editTodo: function (data) {
     wx.BaaS.fetch(
-      '/2.0/class/home/table/todos/add', {
+      'home/table/todos/add', {
         method: 'POST',
         data: data
       }
@@ -64,7 +58,7 @@ Page({
   // 删除数据  提交数据
   del: function (id) {
     wx.BaaS.fetch(
-      '/2.0/class/home/table/todos/delete?whereIn=id,' + id,
+      'home/table/todos/delete?whereIn=id,' + id,
     ).then(res => {
       this.getTodos()
     })
