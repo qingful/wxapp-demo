@@ -30,9 +30,10 @@ Page({
   // 提交登陆数据
   postLoginData: function (data) {
     wx.BaaS.fetch(
-      '/2.0/class/public/table/user/fetch?where=phone,' + data.phone + '&where=password,' + data.password,
+      'public/table/user/fetch?where=phone,' + data.phone + '&where=password,' + data.password,
     )
       .then(res => {
+        console.log(res)
         const authorization = res.data.data;
         if (authorization) {
           wx.setStorageSync('Authorization', authorization);
