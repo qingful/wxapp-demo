@@ -29,7 +29,7 @@ Page({
   // 提交注册数据
   postRegisterData: function (data) {
     wx.BaaS.fetch(
-      '/2.0/class/public/table/user/add', {
+      'public/table/user/add', {
         method: 'POST',
         data: data
       }
